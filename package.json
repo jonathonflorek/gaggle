@@ -1,8 +1,9 @@
 {
   "name": "gaggle",
+  "private": true,
   "version": "1.0.0",
   "description": "Application for the 24 hour startup challenge 2020",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "start": "npm run build && env-cmd node dist/index.js",
     "build": "rimraf dist && tsc -p tsconfig.build.json",
@@ -12,9 +13,10 @@
     "migration:generate": "npm run migration:run && typeorm migration:generate -n",
     "migration:run": "npm run build && typeorm migration:run"
   },
+  "repository": "https://github.com/jonathonflorek/gaggle",
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Jonathon Florek",
+  "license": "MIT",
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",

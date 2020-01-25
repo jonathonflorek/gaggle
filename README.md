@@ -10,6 +10,8 @@ Express + TypeORM + Postgres
 
 When running locally, the server is launched with environment variables provided in the `/.env` file. A sample is provided in `/examples`. Tests are run with environment variables in `/test.env` - make sure these point to different databases or the test runner will truncate your debugging database.
 
+Since this application uses geographic queries, you will have to enable postgis on your test and main database. The query `CREATE EXTENSION postgis;` will do this for you if you have installed postgis (use StackBuilder to install postgis if you have not done so). Use `SELECT postgis_full_version();` to verify that postgis is installed.
+
 Key NPM scripts:
 - `npm start`: builds and starts
 - `npm run migration:revert`: reverts the most recently applied TypeORM migration.

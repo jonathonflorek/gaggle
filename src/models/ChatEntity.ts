@@ -20,7 +20,7 @@ export class ChatEntity {
     @Index({ spatial: true })
     public location?: {
         type: 'Point';
-        coordinates: [number, number];
+        coordinates: number[];
     };
 
     @Column('simple-array')

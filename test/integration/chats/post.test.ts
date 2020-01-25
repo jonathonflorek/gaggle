@@ -44,6 +44,7 @@ describe('Endpoint test for chats: POST /chats', () => {
             expect(chatsInDB.length).to.equal(1);
             expect(result.body).to.deep.equal({
                 chatId: chatsInDB[0].id.toString(),
+                chatName: 'abc chat'
             });
             expect(chatsInDB[0]).to.deep.include({
                 name: 'abc chat',
@@ -98,6 +99,7 @@ describe('Endpoint test for chats: POST /chats', () => {
             expect(newChats.length).to.equal(1);
             expect(result.body).to.deep.equal({
                 chatId: newChats[0].id.toString(),
+                chatName: 'abc chat'
             });
         });
     
@@ -144,6 +146,7 @@ describe('Endpoint test for chats: POST /chats', () => {
             expect(chatsInDB.length).to.equal(1);
             expect(result.body).to.deep.equal({
                 chatId: saved.id.toString(),
+                chatName: 'name',
             });
         });
 });

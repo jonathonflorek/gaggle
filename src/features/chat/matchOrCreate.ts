@@ -18,6 +18,7 @@ export const chatRequestSchema = {
 interface ChatMatchResults {
     success: {
         chatId: string;
+        chatName: string;
     };
 }
 
@@ -66,6 +67,7 @@ export async function handleChatMatchOrCreate(
 
         return result('success', {
             chatId: chat.id.toString(),
+            chatName: chat.name,
         });
     }
 
@@ -80,6 +82,7 @@ export async function handleChatMatchOrCreate(
     const chatSaved = await repo.save(newChat);
     return result('success', {
         chatId: chatSaved.id.toString(),
+        chatName: name,
     });
 }
 

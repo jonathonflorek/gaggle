@@ -63,7 +63,6 @@ describe('Endpoint test for chats: GET /chats', () => {
                 .request(app)
                 .get(CHAT_ENDPOINT + '/' + chat.id.toString())
                 .send();
-            console.log(result.body)
 
             // Assert
 

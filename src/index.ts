@@ -4,7 +4,7 @@ import * as bodyParser from 'body-parser';
 import * as cors from 'cors';
 import { apiController } from './features/routes';
 import { createConnection } from 'typeorm';
-import { postgresConfig } from './config';
+import { postgresConfig, appPort } from './config';
 
 const app = express();
 const running = start(app);
@@ -24,8 +24,8 @@ async function start(app: express.Application) {
     app.get('/', (_, res) => res.status(200).json({hello:'world'}));
 
     await new Promise(resolve => {
-        app.listen(8080, () => {
-            console.log(`app listening on port 8080`);
+        app.listen(appPort, () => {
+            console.log(`app listening on port ${appPort}`);
             resolve();
         })
     })

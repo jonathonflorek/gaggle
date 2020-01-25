@@ -1,3 +1,5 @@
+export const appPort = Number(required('APP_PORT'));
+
 export const postgresConfig = {
     type: 'postgres' as const,
     port: Number(required('POSTGRES_PORT')),

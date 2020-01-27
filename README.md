@@ -6,6 +6,8 @@ https://github.com/jonathonflorek/gaggle
 
 Express + TypeORM + Postgres
 
+Copy-pasted a lot of code from here: https://github.com/jonathonflorek/realworld-slices
+
 ## How to develop
 
 When running locally, the server is launched with environment variables provided in the `/.env` file. A sample is provided in `/examples`. Tests are run with environment variables in `/test.env` - make sure these point to different databases or the test runner will truncate your debugging database.

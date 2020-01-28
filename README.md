@@ -8,6 +8,16 @@ Express + TypeORM + Postgres
 
 Copy-pasted a lot of code from here: https://github.com/jonathonflorek/realworld-slices
 
+## Archived Project Post-Mortem
+
+The frontend was not completed in time, so the only assurance this backend works are the integration tests.
+
+A naive Express was made: using async functions that threw errors but did not catch them and forward them into `next(err)`. This caused requests to hang whenever an internal error occurred. Solution: import `express-async-errors` to patch this behaviour on the router.
+
+`validate-typescript` was an entirely unsuitable library to use for this project. When validation errors are thrown, they extend Error instead of ValidationError and so invoking `.reason()` to get a human-readable printout of validation errors is not possible. This was known before the template project. Solution: use `io-ts` instead.
+
+All of the problems with this project inherited from the template have been fixed in the template.
+
 ## How to develop
 
 When running locally, the server is launched with environment variables provided in the `/.env` file. A sample is provided in `/examples`. Tests are run with environment variables in `/test.env` - make sure these point to different databases or the test runner will truncate your debugging database.
